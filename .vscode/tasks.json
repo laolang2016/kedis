@@ -1,0 +1,86 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        // debug 构建
+        {
+            "label": "build-debug",
+            "type": "shell",
+            "command": "cmake -S . -G Ninja -B cmake-build-debug -DCMAKE_BUILD_TYPE=Debug && cmake --build cmake-build-debug"
+        },
+        // release 构建
+        {
+            "label": "build-release",
+            "type": "shell",
+            "command": "cmake -S . -G Ninja -B cmake-build-release -DCMAKE_BUILD_TYPE=Release && cmake --build cmake-build-release"
+        },
+        // 清理
+        {
+            "label": "clean-build",
+            "type": "shell",
+            "command": "if [ -d build ]; then rm -rf build; fi"
+        },
+        {
+            "label": "clean-release",
+            "type": "shell",
+            "command": "if [ -d cmake-build-release ]; then rm -rf cmake-build-release; fi"
+        },
+        {
+            "label": "clean-debug",
+            "type": "shell",
+            "command": "if [ -d cmake-build-debug ]; then rm -rf cmake-build-debug; fi"
+        },
+        {
+            "label": "clean-all",
+            "type": "shell",
+            "dependsOn": [
+                "clean-build",
+                "clean-release",
+                "clean-debug"
+            ]
+        },
+        // 重新构建
+        {
+            "label": "rebuild-release",
+            "type": "shell",
+            "dependsOn": [
+                "clean-release",
+                "build-release"
+            ]
+        },
+        {
+            "label": "rebuild-debug",
+            "type": "shell",
+            "dependsOn": [
+                "clean-debug",
+                "build-debug"
+            ]
+        },
+        // format
+        {
+            "label": "format",
+            "type": "shell",
+            "command": "./format.sh"
+        },
+        // coverage
+        {
+            "label": "coverage",
+            "type": "shell",
+            "command": "./coverage.sh"
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "cd cmake-build-release/dist/bin && ./kedis",
+            "dependsOn": [
+                "build-release"
+            ]
+        },
+        {
+            "label": "run-test",
+            "type": "shell",
+            "command": "cmake -S . -G Ninja -B build && cmake --build build && cd build/dist/test && ./kedis_test"
+        }
+    ]
+}

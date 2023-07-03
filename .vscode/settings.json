@@ -1,0 +1,122 @@
+{
+    // 隐藏了某些文件
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        // "**/build": true,
+        // "**/cmake-build-debug": true,
+        // "**/cmake-build-release": true,
+        "**/Testing": true
+    },
+    // 修改了注释的颜色
+    "editor.tokenColorCustomizations": {
+        "comments": {
+            "fontStyle": "",
+            "foreground": "#4a524e"
+        }
+    },
+    // 右侧标尺
+    "editor.rulers": [
+        120
+    ],
+    // 任务栏显示任务快捷按钮, 来自插件 Taks Butons
+    "VsCodeTaskButtons.showCounter": true,
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "$(debug-coverage) coverage",
+            "task": "coverage"
+        },
+        {
+            "label": "format",
+            "task": "format"
+        },
+        {
+            "label": "$(notebook-delete-cell) clean-all",
+            "task": "clean-all"
+        },
+        {
+            "label": "$(debug-configure) rebuild-release",
+            "task": "rebuild-release"
+        },
+        {
+            "label": "$(notebook-execute) run",
+            "task": "run"
+        },
+        {
+            "label": "$(test-view-icon) run-test",
+            "task": "run-test"
+        }
+    ],
+    "files.associations": {
+        "string": "cpp",
+        "string_view": "cpp",
+        "array": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "*.tcc": "cpp",
+        "cctype": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "clocale": "cpp",
+        "cmath": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "condition_variable": "cpp",
+        "csignal": "cpp",
+        "cstdarg": "cpp",
+        "cstddef": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "exception": "cpp",
+        "algorithm": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "ratio": "cpp",
+        "system_error": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "fstream": "cpp",
+        "initializer_list": "cpp",
+        "iomanip": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "mutex": "cpp",
+        "new": "cpp",
+        "numbers": "cpp",
+        "ostream": "cpp",
+        "semaphore": "cpp",
+        "span": "cpp",
+        "sstream": "cpp",
+        "stdexcept": "cpp",
+        "stop_token": "cpp",
+        "streambuf": "cpp",
+        "thread": "cpp",
+        "typeinfo": "cpp",
+        "variant": "cpp",
+        "codecvt": "cpp",
+        "optional": "cpp"
+    }
+}
