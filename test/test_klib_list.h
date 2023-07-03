@@ -4,5 +4,6 @@
 #include "cutest/CuTest.h"
 
 void test_sayHello(CuTest *cuTest);
+void test_sayHi(CuTest *cuTest);
 
 #endif

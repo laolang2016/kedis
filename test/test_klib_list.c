@@ -9,3 +9,8 @@ void test_sayHello(CuTest *cuTest) {
     dzlog_info("====> test klib list");
     CuAssert(cuTest, "\ntest3 not pass", 1 == sayHello());
 }
+
+void test_sayHi(CuTest *cuTest){
+    dzlog_info("====> test klib list");
+    CuAssert(cuTest, "\ntest3 not pass", 1 == sayHi());
+}

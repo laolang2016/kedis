@@ -5,6 +5,7 @@
 
 static void suite_add_klib_list(CuSuite *suite) {
     SUITE_ADD_TEST(suite, test_sayHello);
+    SUITE_ADD_TEST(suite, test_sayHi);
 }
 
 static void suite_add_all(CuSuite *suite) {
@@ -25,5 +26,5 @@ int main() {
     CuSuiteDetails(suite, output);
     // 打印测试结果
     printf("%s\n", output->buffer);
-    return 0;
+    return suite->failCount;
 }
