@@ -1,5 +1,5 @@
 #include "kedis/klib/k_list.h"
 
-int sayHello(){
+int sayHello() {
     return 1;
 }

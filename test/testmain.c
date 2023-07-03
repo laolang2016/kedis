@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "test_klib_list.h"
 #include "kedis/util/log_util.h"
+#include "test_klib_list.h"
 
 static int suite_init(void) {
     return 0;
@@ -24,10 +24,11 @@ static CU_SuiteInfo tests_klib_suites[] = {
     CU_SUITE_INFO_NULL,
 };
 
-#define ADD_SUITE(suite) if (CUE_SUCCESS != CU_register_suites(suite)) { \
-        CU_cleanup_registry(); \
-        return CU_get_error(); \
-    } \
+#define ADD_SUITE(suite)                            \
+    if (CUE_SUCCESS != CU_register_suites(suite)) { \
+        CU_cleanup_registry();                      \
+        return CU_get_error();                      \
+    }
 
 int main() {
     kdeis_util_log_init();
