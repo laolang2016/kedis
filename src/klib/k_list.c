@@ -3,3 +3,7 @@
 int sayHello() {
     return 1;
 }
+
+int sayHi() {
+    return 1;
+}

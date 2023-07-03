@@ -3,4 +3,6 @@
 
 int sayHello();
 
+int sayHi();
+
 #endif

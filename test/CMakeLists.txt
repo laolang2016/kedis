@@ -14,6 +14,7 @@ add_executable(${PROJECT_NAME} ${test_srcs})
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${PROJECT_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/third
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE cunit zlog ${lib_klib} ${lib_util})
