@@ -6,7 +6,7 @@
 #define VECTOR_DEFAULT_LENGTH 10
 
 typedef int (*vector_compare_func_ptr)(const void* el1, const void* el2);
-typedef void (*vector_copy_func_ptr)(void* src_ptr, void* dest_ptr);
+typedef void (*vector_copy_func_ptr)(void* dest_ptr, const void* src_ptr);
 typedef void (*vector_free_func_ptr)(void* el);
 
 typedef struct {
@@ -29,6 +29,8 @@ void* vector_at(vector* v, size_t index);
 size_t vector_length(vector* v);
 
 void vector_push_back(vector* v, const void * el);
+
+void vector_delete(vector * v, const size_t index);
 
 
 

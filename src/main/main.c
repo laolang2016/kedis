@@ -12,15 +12,21 @@ int main() {
 
     log_info("hello kedis");
 
-    int     arr[] = {1, 2, 3, 4, 5};
+    int     arr[20] = {0};
+    for( int i = 0; i < 20; i++){
+        arr[i] = i + 1;
+    }
     vector* v     = vector_new(sizeof(int), int_compare, NULL, NULL);
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 20; i++) {
         vector_push_back(v, &arr[i]);
     }
+
+    vector_delete(v,2);
 
     for (size_t i = 0; i < v->length; i++) {
         log_info("val:%d", *(int*)vector_at(v, i));
     }
+    log_info("length:%zu", v->length);
 
     vector_destroy(v);
 
