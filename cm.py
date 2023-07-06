@@ -43,6 +43,35 @@ def linux_test():
     return 0 == ret
 
 
+def windows_configure_release():
+    command = 'cmake --preset=tdm-release'
+    ret = os.system(command)
+    return 0 == ret
+
+def windows_run():
+    command = 'cmake --build ' + release_dir + ' --target run'
+    ret = os.system(command)
+    return 0 == ret
+
+def windows_configure_build():
+    command = 'cmake -S . -G Ninja -B build -DBUILD_TEST=on && cmake --build build'
+    ret = os.system(command)
+    if 0 != ret:
+        print('configure failed')
+        return False
+    command = 'cmake --build build'
+    ret = os.system(command)
+    if 0 != ret:
+        print('generate failed')
+        return False
+    return True
+
+def windows_test():
+    command = 'ctest --test-dir build'
+    ret = os.system(command)
+    return 0 == ret
+
+
 def rmdir(build_dir):
     dir = os.getcwd() + os.path.sep + build_dir
     if os.path.exists(dir):
@@ -61,7 +90,8 @@ if __name__ == '__main__':
 
     if 'run' == run_type:
         if platform_windows:
-            print('windows run')
+            if windows_configure_release():
+                windows_run()
         else:
             if linux_configure_release():
                 linux_run()
@@ -73,7 +103,8 @@ if __name__ == '__main__':
 
     if 'test' == run_type:
         if platform_windows:
-            print('windows run')
+            if windows_configure_build():
+                windows_test()
         else:
             if linux_configure_build():
                 linux_test()
