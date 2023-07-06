@@ -1,6 +1,6 @@
 #include "test_klib_list.h"
 
-#include <CUnit/Basic.h>
+#include "cutest/CuTest.h"
 
 #include "kedis/klib/klib.h"
 #include "kedis/util/log_util.h"
