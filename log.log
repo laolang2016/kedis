@@ -1,0 +1,19 @@
+2023-07-06 13:35:40 TRACE F:/github/kedis/src/main/main.c:8: hello kedis
+2023-07-06 13:35:40 DEBUG F:/github/kedis/src/main/main.c:9: hello kedis
+2023-07-06 13:35:40 INFO  F:/github/kedis/src/main/main.c:10: hello kedis
+2023-07-06 13:35:40 WARN  F:/github/kedis/src/main/main.c:11: hello kedis
+2023-07-06 13:35:40 ERROR F:/github/kedis/src/main/main.c:12: hello kedis
+2023-07-06 13:35:40 FATAL F:/github/kedis/src/main/main.c:13: hello kedis
+2023-07-06 13:45:58 TRACE F:/github/kedis/src/main/main.c:8: hello kedis
+2023-07-06 13:45:58 DEBUG F:/github/kedis/src/main/main.c:9: hello kedis
+2023-07-06 13:45:58 INFO  F:/github/kedis/src/main/main.c:10: hello kedis
+2023-07-06 13:45:58 WARN  F:/github/kedis/src/main/main.c:11: hello kedis
+2023-07-06 13:45:58 ERROR F:/github/kedis/src/main/main.c:12: hello kedis
+2023-07-06 13:45:58 FATAL F:/github/kedis/src/main/main.c:13: hello kedis
+2023-07-06 13:47:12 TRACE F:/github/kedis/src/main/main.c:8: hello kedis
+2023-07-06 13:47:12 DEBUG F:/github/kedis/src/main/main.c:9: hello kedis
+2023-07-06 13:47:12 INFO  F:/github/kedis/src/main/main.c:10: hello kedis
+2023-07-06 13:47:12 WARN  F:/github/kedis/src/main/main.c:11: hello kedis
+2023-07-06 13:47:12 ERROR F:/github/kedis/src/main/main.c:12: hello kedis
+2023-07-06 13:47:12 FATAL F:/github/kedis/src/main/main.c:13: hello kedis
+2023-07-06 13:47:17 INFO  F:/github/kedis/test/testmain.c:18: hello kedis test

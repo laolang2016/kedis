@@ -12,5 +12,6 @@ int main() {
     log_error("hello kedis");
     log_fatal("hello kedis");
     // printf("\n\nHello kedis.\n");
+    kdeis_util_log_fini();
     return 0;
 }

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.26)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED True)
@@ -8,6 +8,7 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH True)
 project(kedis C)
 
 option(GEN_COVERAGE "构建测试覆盖率" off)
+option(BUILD_TEST "构建测试覆盖率" off)
 
 if(CMAKE_BUILD_TYPE)
     string(TOLOWER ${CMAKE_BUILD_TYPE} BUILD_TYPE)
@@ -47,5 +48,7 @@ set(lib_util util)
 
 add_subdirectory(src)
 
-enable_testing()
-add_subdirectory(test)
+if(BUILD_TEST)
+    enable_testing()
+    add_subdirectory(test)
+endif()

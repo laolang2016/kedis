@@ -2,6 +2,7 @@
 
 #include "cutest/CuTest.c"
 #include "test_klib_list.h"
+#include "kedis/util/log_util.h"
 
 static void suite_add_klib_list(CuSuite *suite) {
     SUITE_ADD_TEST(suite, test_sayHello);
@@ -13,6 +14,8 @@ static void suite_add_all(CuSuite *suite) {
 }
 
 int main() {
+    kdeis_util_log_init();
+    log_info("hello kedis test");
     // 定义用于存储测试信息的字符串
     CuString *output = CuStringNew();
 
@@ -26,5 +29,6 @@ int main() {
     CuSuiteDetails(suite, output);
     // 打印测试结果
     printf("%s\n", output->buffer);
+    kdeis_util_log_fini();
     return suite->failCount;
 }
