@@ -7,10 +7,23 @@
     },
     "configurePresets": [
         {
+            "name": "gnu-base",
+            "generator": "Ninja",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "gcc"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            }
+        },
+        {
             "name": "gnu-ninja-release",
             "displayName": "gnu Config",
             "description": "linux 构建, 使用 Ninja",
-            "generator": "Ninja",
+            "inherits":"gnu-base",
             "binaryDir": "${sourceDir}/cmake-build-release",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
@@ -20,7 +33,7 @@
             "name": "gnu-ninja-debug",
             "displayName": "gnu Config",
             "description": "linux 构建, 使用 Ninja",
-            "generator": "Ninja",
+            "inherits":"gnu-base",
             "binaryDir": "${sourceDir}/cmake-build-debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",

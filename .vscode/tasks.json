@@ -7,13 +7,13 @@
         {
             "label": "build-debug",
             "type": "shell",
-            "command": "cmake -S . -G Ninja -B cmake-build-debug -DCMAKE_BUILD_TYPE=Debug -DBUILD_TEST=on && cmake --build cmake-build-debug"
+            "command": "cmake --preset=gnu-ninja-debug && cmake --build cmake-build-debug"
         },
         // release 构建
         {
             "label": "build-release",
             "type": "shell",
-            "command": "cmake -S . -G Ninja -B cmake-build-release -DCMAKE_BUILD_TYPE=Release && cmake --build cmake-build-release"
+            "command": "cmake --preset=gnu-ninja-release && cmake --build cmake-build-release"
         },
         // 清理
         {
