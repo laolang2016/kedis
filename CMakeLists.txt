@@ -42,9 +42,6 @@ endif()
 
 set(dist_dir ${CMAKE_BINARY_DIR}/dist)
 
-configure_file(${PROJECT_SOURCE_DIR}/zlog.conf ${dist_dir}/bin/zlog.conf COPYONLY)
-
-
 set(lib_klib klib)
 set(lib_util util)
 

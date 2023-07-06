@@ -17,13 +17,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/third
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE cunit zlog ${lib_klib} ${lib_util})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${lib_klib} ${lib_util})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${dist_dir}/test)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES INSTALL_RPATH "\${ORIGIN}/../lib")
-
-configure_file(${CMAKE_SOURCE_DIR}/zlog.conf ${dist_dir}/test/zlog.conf COPYONLY)
 
 # 执行所有测试
 add_test(NAME test_all COMMAND ${PROJECT_NAME})

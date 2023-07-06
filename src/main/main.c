@@ -5,9 +5,12 @@
 
 int main() {
     kdeis_util_log_init();
-
-    dzlog_info("k_list sayHello:%d", sayHello());
-    printf("\n\nHello kedis.\n");
-    zlog_fini();
+    log_trace("hello kedis");
+    log_debug("hello kedis");
+    log_info("hello kedis");
+    log_warn("hello kedis");
+    log_error("hello kedis");
+    log_fatal("hello kedis");
+    // printf("\n\nHello kedis.\n");
     return 0;
 }

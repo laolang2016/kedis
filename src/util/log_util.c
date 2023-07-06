@@ -3,13 +3,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void kdeis_util_log_init() {
-    int rc;
-    rc = dzlog_init("zlog.conf", "my_cat");
+static FILE* fp = NULL;
 
-    if (rc) {
-        printf("zlog 初始化失败\n");
-        zlog_fini();
-        exit(EXIT_FAILURE);
+void kdeis_util_log_init() {
+    fp = fopen("./log.log", "ab");
+    if (NULL != fp) {
+        log_add_fp(fp, LOG_TRACE);
+    }
+}
+
+void kdeis_util_log_fini() {
+    if (NULL != fp) {
+        fclose(fp);
     }
 }
