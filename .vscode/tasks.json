@@ -34,11 +34,7 @@
         {
             "label": "clean-all",
             "type": "shell",
-            "dependsOn": [
-                "clean-build",
-                "clean-release",
-                "clean-debug"
-            ]
+            "command": "python3 cm.py cleanall"
         },
         // 重新构建
         {
@@ -72,15 +68,12 @@
         {
             "label": "run",
             "type": "shell",
-            "command": "cd cmake-build-release/dist/bin && ./kedis",
-            "dependsOn": [
-                "build-release"
-            ]
+            "command": "python3 cm.py run"
         },
         {
             "label": "run-test",
             "type": "shell",
-            "command": "cmake -S . -G Ninja -B build -DBUILD_TEST=on&& cmake --build build && cd build/dist/test && ./kedis_test"
+            "command": "python3 cm.py test"
         }
     ]
 }
