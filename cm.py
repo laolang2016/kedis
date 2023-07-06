@@ -38,7 +38,8 @@ def linux_configure_build():
     return True
 
 def linux_test():
-    command = 'ctest --test-dir build'
+    # command = 'ctest --test-dir build'
+    command = './build/dist/test/kedis_test'
     ret = os.system(command)
     return 0 == ret
 
