@@ -39,6 +39,40 @@
                 "CMAKE_BUILD_TYPE": "Debug",
                 "BUILD_TEST":"ON"
             }
+        },
+        {
+            "name": "tdm-base",
+            "generator": "Ninja",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "gcc"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "tdm-release",
+            "displayName": "tdm release",
+            "description": "tdm release 构建",
+            "inherits":"tdm-base",
+            "binaryDir": "${sourceDir}/cmake-build-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "tdm-debug",
+            "displayName": "tdm debug",
+            "description": "tdm debug 构建",
+            "inherits":"tdm-base",
+            "binaryDir": "${sourceDir}/cmake-build-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "BUILD_TEST":"ON"
+            }
         }
     ]
 }
