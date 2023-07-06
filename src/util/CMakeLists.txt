@@ -7,13 +7,16 @@ target_include_directories(${lib_util} PUBLIC ${PROJECT_SOURCE_DIR}/include ${PR
 target_compile_definitions(${lib_util} PUBLIC -DLOG_USE_COLOR)
 
 # target_link_libraries(${lib_util} PUBLIC zlog)
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+if(UNIX)
     set_target_properties(${lib_util} PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${dist_dir}/lib)
     message(STATUS "util path:${dist_dir}/lib")
 endif()
 
 set_target_properties(${lib_util} PROPERTIES VERSION 1.0 SOVERSION 1)
-set_target_properties(${lib_util} PROPERTIES INSTALL_RPATH "\${ORIGIN}/../lib")
+
+if(UNIX)
+    set_target_properties(${lib_util} PROPERTIES INSTALL_RPATH "\${ORIGIN}/../lib")
+endif()
 
 if(WIN32)
     set(lib_util_name lib${lib_util}${CMAKE_DEBUG_POSTFIX}${CMAKE_SHARED_LIBRARY_SUFFIX})

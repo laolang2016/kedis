@@ -7,7 +7,7 @@
         {
             "label": "build-debug",
             "type": "shell",
-            "command": "cmake -S . -G Ninja -B cmake-build-debug -DCMAKE_BUILD_TYPE=Debug && cmake --build cmake-build-debug"
+            "command": "cmake -S . -G Ninja -B cmake-build-debug -DCMAKE_BUILD_TYPE=Debug -DBUILD_TEST=on && cmake --build cmake-build-debug"
         },
         // release 构建
         {
@@ -80,7 +80,7 @@
         {
             "label": "run-test",
             "type": "shell",
-            "command": "cmake -S . -G Ninja -B build && cmake --build build && cd build/dist/test && ./kedis_test"
+            "command": "cmake -S . -G Ninja -B build -DBUILD_TEST=on&& cmake --build build && cd build/dist/test && ./kedis_test"
         }
     ]
 }

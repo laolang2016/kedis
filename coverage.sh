@@ -5,7 +5,7 @@ if [ -d BUILD_PATH ]; then
     rm -rf ${BUILD_PATH};
 fi
 
-cmake -S . -B ${BUILD_PATH} -DCMAKE_BUILD_TYPE=Debug -DGEN_COVERAGE=ON
+cmake -S . -B ${BUILD_PATH} -DCMAKE_BUILD_TYPE=Debug -DGEN_COVERAGE=ON -DBUILD_TEST=ON
 cmake --build ${BUILD_PATH}
 ctest --test-dir ${BUILD_PATH} -R test_all
 
