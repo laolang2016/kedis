@@ -1,0 +1,31 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 26,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "gnu-ninja-release",
+            "displayName": "gnu Config",
+            "description": "linux 构建, 使用 Ninja",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/cmake-build-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "gnu-ninja-debug",
+            "displayName": "gnu Config",
+            "description": "linux 构建, 使用 Ninja",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/cmake-build-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "BUILD_TEST":"ON"
+            }
+        }
+    ]
+}

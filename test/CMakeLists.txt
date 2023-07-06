@@ -1,5 +1,5 @@
 # 指定 cmake 最小版本, 意指 cmake 版本低于指定版本则构建过程终止
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.26)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED True)
