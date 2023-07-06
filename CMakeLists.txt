@@ -35,11 +35,9 @@ if(project_debug)
 endif()
 
 if(project_debug)
-    if(BUILD_TEST)
-        if(GEN_COVERAGE)
-            SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
-            SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
-        endif()
+    if(UNIX AND BUILD_TEST AND GEN_COVERAGE)
+        SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
+        SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
     endif()
 endif()
 
@@ -49,6 +47,10 @@ set(lib_klib klib)
 set(lib_util util)
 
 add_subdirectory(src)
+
+# 定义一个伪目标
+# 可以使用 cmake --build build --target run 运行项目
+add_custom_target(run COMMAND $<TARGET_FILE:${PROJECT_NAME}>)
 
 if(BUILD_TEST)
     enable_testing()
