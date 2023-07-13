@@ -70,13 +70,49 @@ void vector_push_back(vector* v, const void* el) {
 }
 
 void vector_delete(vector* v, const size_t index) {
-    if (index < 0) return;
     if (index >= v->length) return;
 
     void* dest_addr = (char*)v->data + index * v->el_size;
     if (NULL != v->free_func) v->free_func(dest_addr);
 
     size_t byte_size = (v->length - 1 - index) * v->el_size;
-    memmove(dest_addr,(char*)dest_addr + v->el_size,byte_size);
+    memmove(dest_addr, (char*)dest_addr + v->el_size, byte_size);
     v->length--;
+}
+
+void vector_swap(vector* v, const size_t first, const size_t second) {
+    if (NULL == v) return;
+    if (0 == v->length) return;
+
+    if (first >= v->length || second >= v->length) return;
+    if (first == second) return;
+
+    char tmp[v->el_size];
+    memcpy(tmp, v->data + first * v->el_size, v->el_size);
+    memcpy(v->data + first * v->el_size, v->data + second * v->el_size, v->el_size);
+    memcpy(v->data + second * v->el_size, tmp, v->el_size);
+}
+
+void vector_sort(vector* v, vector_sort_type type) {
+    if (NULL == v) return;
+    if (0 == v->length) return;
+    if (NULL == v->compare_func) return;
+
+    int type_val = (int)type;
+
+    for (size_t i = v->length - 1; i > 0; i--) {
+        void* el_i = vector_at(v, i);
+        for (size_t j = 0; j < i; j++) {
+            void* el_j = vector_at(v, j);
+            if (type_val > 0) {
+                if (v->compare_func(el_i, el_j) < 0) {
+                    vector_swap(v, i, j);
+                }
+            } else {
+                if (v->compare_func(el_i, el_j) > 0) {
+                    vector_swap(v, i, j);
+                }
+            }
+        }
+    }
 }

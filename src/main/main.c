@@ -12,16 +12,15 @@ int main() {
 
     log_info("hello kedis");
 
-    int     arr[20] = {0};
-    for( int i = 0; i < 20; i++){
-        arr[i] = i + 1;
-    }
-    vector* v     = vector_new(sizeof(int), int_compare, NULL, NULL);
-    for (int i = 0; i < 20; i++) {
+    int arr[12] = {1, 3, 5, 10, 56, 2, 8, 50, 21, 11, 31, 20};
+
+    vector* v = vector_new(sizeof(int), int_compare, NULL, NULL);
+    for (int i = 0; i < 12; i++) {
         vector_push_back(v, &arr[i]);
     }
 
-    vector_delete(v,2);
+    vector_delete(v, 2);
+    vector_sort(v, 1);
 
     for (size_t i = 0; i < v->length; i++) {
         log_info("val:%d", *(int*)vector_at(v, i));

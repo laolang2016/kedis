@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 #include "cutest/CuTest.c"
-#include "test_klib_list.h"
 #include "kedis/util/log_util.h"
+#include "test_klib_list.h"
 
 static void suite_add_klib_list(CuSuite *suite) {
     SUITE_ADD_TEST(suite, test_sayHello);
