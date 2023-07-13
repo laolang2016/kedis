@@ -146,7 +146,7 @@ void vector_swap(vector* v, const size_t first, const size_t second);
 /**
  * @brief 排序数组
  * 
- * compare_func 不能为空
+ * @details compare_func 不能为空
  * 
  * @param v 动态数组指针
  * @param type 排序方式
